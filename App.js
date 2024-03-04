@@ -34,7 +34,7 @@ export default function App() {
               ),
           })}/>
           <Stack.Screen name="AddPlace" component={AddPlace} options={{
-            title: 'Add a new Place'
+            title: 'Add a New Place'
           }}/>
         </Stack.Navigator>
       </NavigationContainer>
