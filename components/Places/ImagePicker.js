@@ -1,13 +1,19 @@
 import { Alert, Button, Image, StyleSheet, Text, View } from 'react-native';
-import {  launchCameraAsync, useCameraPermissions, PermissionStatus} from 'expo-image-picker';
+import {
+  launchCameraAsync,
+  useCameraPermissions,
+  PermissionStatus,
+} from 'expo-image-picker';
 import { useState } from 'react';
 
 import { Colors } from '../../constants/colors';
+import OutlinedButton from '../UI/OutlinedButton';
 
 function ImagePicker() {
-  const [pickedImage, setPickedImage] = useState('');
+  const [pickedImage, setPickedImage] = useState();
 
-  const [cameraPermissionInformation, requestPermission] =  useCameraPermissions();
+  const [cameraPermissionInformation, requestPermission] =
+    useCameraPermissions();
 
   async function verifyPermissions() {
     if (cameraPermissionInformation.status === PermissionStatus.UNDETERMINED) {
@@ -40,7 +46,6 @@ function ImagePicker() {
       quality: 0.5,
     });
 
-    console.log(image);
     setPickedImage(image.uri);
   }
 
@@ -52,8 +57,9 @@ function ImagePicker() {
 
   return (
     <View>
-      <View style={styles.iP}>{imagePreview}</View>
-      <Button title="Take Image" onPress={takeImageHandler} />
+      <View style={styles.imagePreview}>{imagePreview}</View>
+      <OutlinedButton icon="camera" onPress={takeImageHandler} >Take Image</OutlinedButton>
+      {/* <Button title="Take Image" onPress={takeImageHandler} /> */}
     </View>
   );
 }
@@ -61,7 +67,7 @@ function ImagePicker() {
 export default ImagePicker;
 
 const styles = StyleSheet.create({
-  iP: {
+  imagePreview: {
     width: '100%',
     height: 200,
     marginVertical: 8,
@@ -73,6 +79,5 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
-    resizeMode: 'contain',
   },
 });
