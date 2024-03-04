@@ -1,19 +1,17 @@
 import { StyleSheet, Text, View } from "react-native";
-import PlaceForm from "../components/Places/PlaceForm";
 //import PlacesList from "../components/Places/PlacesList";
 
-function AddPlace() {
+function PlaceForm() {
     return (
         // <PlacesList/>
-        // <View>
-        //     <Text>hii</Text>
-        // </View>
-        <PlaceForm/>
+        <View>
+            <Text>The Place Form</Text>
+        </View>
         
-    );
+    )
 }
 
-export default AddPlace;
+export default PlaceForm;
 
 const styles=StyleSheet.create({
 
